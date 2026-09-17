@@ -1,0 +1,419 @@
+:root {
+  color-scheme: light dark;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  padding: 16px;
+  min-height: 100vh;
+  background: #1e1f22;
+  color: #eee;
+  box-sizing: border-box;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 16px;
+  background: #2b2d31;
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+
+.doc-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.doc-tab {
+  display: flex;
+  align-items: center;
+  background: #232427;
+  color: #aaa;
+  border-radius: 6px 6px 0 0;
+  border-bottom: 2px solid transparent;
+  padding-right: 2px;
+}
+
+.doc-tab.active {
+  background: #2b2d31;
+  color: #eee;
+  border-bottom: 2px solid #5b8cff;
+}
+
+.doc-tab-label {
+  background: none;
+  color: inherit;
+  padding: 8px 6px 8px 14px;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.doc-tab-label:hover {
+  background: none;
+}
+
+.unsaved-dot {
+  color: #f0a020;
+  font-size: 16px;
+  line-height: 0;
+}
+
+.doc-tab-close {
+  background: none;
+  color: inherit;
+  padding: 4px 8px;
+  margin-right: 4px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.doc-tab-close:hover {
+  background: #4a4d52;
+  opacity: 1;
+}
+
+.tool-group {
+  display: flex;
+  gap: 4px;
+  background: #232427;
+  border-radius: 6px;
+  padding: 3px;
+}
+
+button {
+  background: #3a3d42;
+  color: #eee;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+button:hover {
+  background: #4a4d52;
+}
+
+button.active {
+  background: #4c7eff;
+  color: white;
+}
+
+.toolbar label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.workspace {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.canvas-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.canvas-surface {
+  position: relative;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid #444;
+  border-radius: 4px;
+  touch-action: none;
+  cursor: crosshair;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.selection-overlay {
+  position: absolute;
+  border: 1.5px dashed #4c7eff;
+  background: rgba(76, 126, 255, 0.12);
+  pointer-events: none;
+}
+
+.pen-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panel {
+  background: #2b2d31;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.panel h3 {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #aaa;
+}
+
+.panel label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+.panel > button {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.layer-list {
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.layer-list li {
+  background: #232427;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.layer-list li.active {
+  border-color: #4c7eff;
+}
+
+.layer-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.layer-name {
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.layer-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.layer-controls select {
+  background: #3a3d42;
+  color: #eee;
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+  padding: 3px;
+}
+
+.layer-controls button {
+  padding: 3px 6px;
+  font-size: 11px;
+}
+
+label.clip-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  flex-direction: row;
+  margin: 0;
+}
+
+.layer-badges {
+  display: inline-flex;
+  gap: 3px;
+  margin: 0 4px;
+}
+
+.layer-badges span {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: #333;
+  color: #ccc;
+}
+
+.status-bar {
+  font-size: 12px;
+  color: #999;
+}
+
+.settings-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.settings-panel {
+  background: #2b2d31;
+  border-radius: 12px;
+  padding: 20px 24px;
+  width: min(600px, 90vw);
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.settings-header h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.settings-section h3 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #aaa;
+  margin: 0 0 6px 0;
+}
+
+.settings-hint {
+  font-size: 12px;
+  color: #999;
+  line-height: 1.5;
+  margin: 6px 0 14px 0;
+}
+
+.settings-field {
+  margin-bottom: 14px;
+}
+
+.settings-field label {
+  display: block;
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.settings-row {
+  display: flex;
+  gap: 6px;
+}
+
+.settings-row input {
+  flex: 1;
+  background: #1e1f22;
+  color: #eee;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-family: "Cascadia Code", "Consolas", monospace;
+  font-size: 12px;
+}
+
+.copy-btn {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.regenerate-btn {
+  background: #6a3232;
+}
+
+.regenerate-btn:hover {
+  background: #7a3a3a;
+}
+
+.close-tab-dialog {
+  background: #2b2d31;
+  border-radius: 12px;
+  padding: 20px 24px;
+  width: min(420px, 90vw);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.close-tab-dialog p {
+  margin: 0 0 16px 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.close-tab-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.discard-btn {
+  background: #6a3232;
+  margin-right: auto;
+}
+
+.discard-btn:hover {
+  background: #7a3a3a;
+}
+
+.save-btn {
+  background: #4c7eff;
+}
+
+.save-btn:hover {
+  background: #5c8eff;
+}
+
+.settings-code {
+  background: #1e1f22;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 10px;
+  font-family: "Cascadia Code", "Consolas", monospace;
+  font-size: 11px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin: 0 0 6px 0;
+}

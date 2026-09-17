@@ -1,0 +1,7 @@
+/target
+**/target
+node_modules
+dist
+*.pdb
+Cargo.lock.bak
+.claude/

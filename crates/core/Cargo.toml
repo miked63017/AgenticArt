@@ -1,0 +1,27 @@
+[package]
+name = "agenticart-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+image = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+uuid = { workspace = true }
+zip = { workspace = true }
+imageproc = { workspace = true }
+ab_glyph = { workspace = true }
+ort = { workspace = true }
+psd = { workspace = true }
+moxcms = { workspace = true }
+wgpu = { workspace = true }
+pollster = { workspace = true }
+bytemuck = { workspace = true }
+wasmtime = { workspace = true }
+
+[dev-dependencies]
+psd = { workspace = true }
+wat = "1"

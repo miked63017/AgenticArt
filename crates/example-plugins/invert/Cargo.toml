@@ -1,0 +1,11 @@
+[package]
+name = "agenticart-example-plugin-invert"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+agenticart-plugin-sdk = { workspace = true }

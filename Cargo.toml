@@ -1,0 +1,44 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/core",
+    "crates/mcp-server",
+    "apps/desktop/src-tauri",
+    "crates/plugin-sdk",
+    "crates/example-plugins/invert",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[workspace.dependencies]
+agenticart-core = { path = "crates/core" }
+image = "0.25"
+imageproc = { version = "0.25", default-features = false }
+ab_glyph = "0.2"
+ort = "2.0.0-rc.13"
+psd = "0.3"
+moxcms = "0.8"
+wgpu = "22"
+pollster = "0.3"
+bytemuck = { version = "1", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1"
+thiserror = "1"
+uuid = { version = "1", features = ["v4", "serde"] }
+zip = { version = "2", default-features = false, features = ["deflate"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "io-std", "io-util", "sync", "net"] }
+axum = "0.7"
+wasmtime = { version = "48", default-features = false, features = ["cranelift", "runtime"] }
+agenticart-plugin-sdk = { path = "crates/plugin-sdk" }
+
+# Shared by every workspace member; Tauri's release build benefits most
+# from this (smaller binaries), see https://tauri.app/concept/size/
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+strip = true
